@@ -3,9 +3,19 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify, render_template
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect)
+# from flask_sqlalchemy import SQLAlchemy
 
+
+import numpy as np
 import pandas as pd
+
+from flask_cors import CORS
 
 engine = sa.create_engine('postgres://hsowclklmlcrcr:3406df177a4357c1ca87650b7591438a195116fd79eb64c7d37baf5cdf30a345@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3bahjahquj20r')
 
