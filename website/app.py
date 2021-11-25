@@ -81,6 +81,7 @@ def appt_requestsAPI():
         appt_requests_dict["incr_id"] = int(df['incr_id'][x])
         appt_requests_dict["event_begins"] = df['event_begins'][x]
         appt_requests_dict["event_ends"] = df['event_ends'][x]
+        appt_requests_dict["attendees"] = df['attendees'][x]
         appt_requests_list.append(appt_requests_dict)
 
     return jsonify(appt_requests_list)
