@@ -78,7 +78,7 @@ def appt_requestsAPI():
         appt_requests_dict = {}
         appt_requests_dict["summary"] = df['summary'][x]
         appt_requests_dict["description"] = df['description'][x]
-        appt_requests_dict["incr_id"] = df['incr_id'][x]
+        appt_requests_dict["incr_id"] = int(df['incr_id'][x])
         appt_requests_dict["event_begins"] = df['event_begins'][x]
         appt_requests_dict["event_ends"] = df['event_ends'][x]
         appt_requests_list.append(appt_requests_dict)
