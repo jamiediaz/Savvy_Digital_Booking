@@ -30,7 +30,7 @@ def index():
 @app.route("/api")
 def welcome():
     
-    return "Available Routes:<br/> /v1.0/calendar</br>"
+    return "Available Routes:<br/> /v1.0/calendar</br> /v1.0/appt_requests</br>"
             
 
 
@@ -78,12 +78,9 @@ def appt_requestsAPI():
         appt_requests_dict = {}
         appt_requests_dict["summary"] = df['summary'][x]
         appt_requests_dict["description"] = df['description'][x]
-        
         appt_requests_dict["incr_id"] = df['incr_id'][x]
         appt_requests_dict["event_begins"] = df['event_begins'][x]
         appt_requests_dict["event_ends"] = df['event_ends'][x]
-        
-        
         appt_requests_list.append(appt_requests_dict)
 
     return jsonify(appt_requests_list)
