@@ -30,7 +30,7 @@ def index():
 @app.route("/api")
 def welcome():
     
-    return "Available Routes:<br/> /v1.0/</br>"
+    return "Available Routes:<br/> /v1.0/calendar</br>"
             
 
 
@@ -66,28 +66,27 @@ def calendarAPI():
     # df['FileSize'] = int(df["FileSize"])
     # Return df.to_json(orient="records")
 
-@app.route("/api/v1.0/company/<name_of_file>")
-def companyFilteredAPI(name_of_file):
+@app.route("/api/v1.0/appt_requests")
+def appt_requestsAPI():
     
-    sqlquery = f"SELECT * FROM company WHERE UPPER (filename) LIKE UPPER ('%%{name_of_file}%%') ORDER BY subfolder1 ASC NULLS FIRST, subfolder2 ASC NULLS FIRST, fullpath ASC NULLS FIRST;"
+    sqlquery = f"SELECT * FROM appt_requests;"
 
     df = pd.read_sql_query(sqlquery, engine)
         
-    compy_list = []
+    appt_requests_list = []
     for x in df.index:
-        compy_dict = {}
-        compy_dict["FileName"] = df['filename'][x]
-        compy_dict["FullPath"] = df['fullpath'][x]
-        compy_dict["SubFolder1"] = df['subfolder1'][x]
-        compy_dict["SubFolder2"] = df['subfolder2'][x]
-        compy_dict["SubFolder3"] = df['subfolder3'][x]
-        compy_dict["FileSize"] = int(df['filesize'][x])
-        compy_dict["TimeStamp"] = df['timestamp'][x]
-        compy_dict["Year"] = df['year'][x]
-        compy_dict["Month"] = df['month'][x]
-        compy_list.append(compy_dict)
+        appt_requests_dict = {}
+        appt_requests_dict["summary"] = df['summary'][x]
+        appt_requests_dict["description"] = df['description'][x]
+        
+        appt_requests_dict["id"] = df['id'][x]
+        appt_requests_dict["event_begins"] = df['event_begins'][x]
+        appt_requests_dict["event_ends"] = df['event_ends'][x]
+        appt_requests_dict["status"] = df['status'][x]
+        
+        appt_requests_list.append(appt_requests_dict)
 
-    return jsonify(compy_list)
+    return jsonify(appt_requests_list)
 
 @app.route("/api/v1.0/drilling/<name_of_file>")
 def drillingFilteredAPI(name_of_file):
