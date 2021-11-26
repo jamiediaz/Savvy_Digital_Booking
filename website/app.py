@@ -40,7 +40,7 @@ def welcome():
 def calendarAPI():
     
     # queries database for specific file using name in URL
-    sqlquery = f"SELECT * FROM calendar;"
+    sqlquery = f"SELECT * FROM calendar WHERE status = 'confirmed';"
 
     #query the database using above query and copy results to a dataframe
     df = pd.read_sql_query(sqlquery, engine)
