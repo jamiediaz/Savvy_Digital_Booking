@@ -96,14 +96,23 @@ def confirmed_dates_API():
     sqlquery = f"SELECT event_begins, event_ends FROM calendar WHERE status = 'confirmed';"
 
     df = pd.read_sql_query(sqlquery, engine)
+    #Convert df['event_ends'] to datetime
     df['event_ends_converted'] = pd.to_datetime(df['event_ends'])
+    
+    #Subtract 1 minute from the end time. 
     df['event_ends_converted'] = df['event_ends_converted'] - pd.to_timedelta(1, unit='minutes')
+    
+    #Convert column back to string
     df['event_ends_converted'] = df['event_ends_converted'].astype(str)
+    
+    #Fill in the empty space created when the string was converted to datetime with the letter T. 
     df['event_ends_converted'] = df['event_ends_converted'].replace(' ','T', regex=True)
 
+    #Create a new column with the event begins and event ends together in a string.     
     df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'] + "'}"
     
 
+    #Create the API using this new date range column
     conf_dates_list = []
     for x in df.index:
         conf_dates_dict = {}
