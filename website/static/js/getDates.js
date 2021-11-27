@@ -5,7 +5,7 @@ function getDates() {
     fetch(dataQuery).then((response) => {
 
         console.log(response.json());
-        return response.json();
+        //return response.json();
 
     });
 }
