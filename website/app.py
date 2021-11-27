@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from datetime import datetime
-from datetime import timedelta
+
 
 from flask import (
     Flask,
@@ -96,10 +96,10 @@ def confirmed_dates_API():
     sqlquery = f"SELECT event_begins, event_ends FROM calendar WHERE status = 'confirmed';"
 
     df = pd.read_sql_query(sqlquery, engine)
-    n = 1
-    df['new_end'] = df['event_ends'] - timedelta(minutes=n)
+    df['event_ends_converted'] = pd.to_datetime(df['event_ends'])
 
-    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['new_end'].astype(str) + "'}"
+
+    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'].astype(str) + "'}"
     
 
     conf_dates_list = []
