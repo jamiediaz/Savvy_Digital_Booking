@@ -19,6 +19,7 @@
 
     <link href="../static/css/mobiscroll.jquery.min.css" rel="stylesheet">
     <script src="../static/js/mobiscroll.jquery.min.js"></script>
+    <script src="../static/js/d3.js"></script>
 
 
 </head>
@@ -31,7 +32,7 @@
                     <form>
                         <h6>Enter your information and click submit</h6>
                         Date and Time (click to choose a date)<br>
-                        <input class="form-control" id="dateSelect" type="text">
+                        <input class="form-control" id="dateSelect" type="text" onclick="getDates()">
                         <p></p>
                         Name<br>
                         <input class="form-control" id="fullName" type="text">
