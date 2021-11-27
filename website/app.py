@@ -94,14 +94,14 @@ def confirmed_dates_API():
 
     df = pd.read_sql_query(sqlquery, engine)
 
-    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends'].astype(str) + "}"
+    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends'].astype(str) + "'}"
     
 
     conf_dates_list = []
     for x in df.index:
         conf_dates_dict = {}
-        conf_dates_dict["event_begins"] = df['event_begins'][x]
-        conf_dates_dict["event_ends"] = df['event_ends'][x]
+        #conf_dates_dict["event_begins"] = df['event_begins'][x]
+        #conf_dates_dict["event_ends"] = df['event_ends'][x]
         conf_dates_dict['date_range'] = df['date_range'][x]
         
         conf_dates_list.append(conf_dates_dict)
