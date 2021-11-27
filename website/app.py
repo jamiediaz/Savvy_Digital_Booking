@@ -97,9 +97,9 @@ def confirmed_dates_API():
 
     df = pd.read_sql_query(sqlquery, engine)
     df['event_ends_converted'] = pd.to_datetime(df['event_ends'])
+    df['event_ends_converted_minus'] = df['event_ends_converted'] - timedelta(minutes=1)
 
-
-    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'].astype(str) + "'}"
+    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted_minus'].astype(str) + "'}"
     
 
     conf_dates_list = []
