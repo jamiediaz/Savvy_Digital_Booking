@@ -31,7 +31,7 @@ def index():
 @app.route("/api")
 def welcome():
     
-    return "Available Routes:<br/> /v1.0/calendar</br> /v1.0/appt_requests</br>"
+    return "Available Routes:<br/> /v1.0/calendar</br> /v1.0/appt_requests</br> /api/v1.0/confirmed_dates</br>"
             
 
 
@@ -87,28 +87,26 @@ def appt_requestsAPI():
 
     return jsonify(appt_requests_list)
 
-@app.route("/api/v1.0/drilling/<name_of_file>")
-def drillingFilteredAPI(name_of_file):
+@app.route("/api/v1.0/confirmed_dates")
+def confirmed_dates_API():
     
-    sqlquery = f"SELECT * FROM drilling WHERE UPPER (filename) LIKE UPPER ('%%{name_of_file}%%') ORDER BY subfolder1 ASC NULLS FIRST, subfolder2 ASC NULLS FIRST, fullpath ASC NULLS FIRST;"
+    sqlquery = f"SELECT event_begins, event_ends FROM calendar WHERE status = 'confirmed';"
 
     df = pd.read_sql_query(sqlquery, engine)
-        
-    drlng_list = []
-    for x in df.index:
-        drlng_dict = {}
-        drlng_dict["FileName"] = df['filename'][x]
-        drlng_dict["FullPath"] = df['fullpath'][x]
-        drlng_dict["SubFolder1"] = df['subfolder1'][x]
-        drlng_dict["SubFolder2"] = df['subfolder2'][x]
-        drlng_dict["SubFolder3"] = df['subfolder3'][x]
-        drlng_dict["FileSize"] = int(df['filesize'][x])
-        drlng_dict["TimeStamp"] = df['timestamp'][x]
-        drlng_dict["Year"] = df['year'][x]
-        drlng_dict["Month"] = df['month'][x]
-        drlng_list.append(drlng_dict)
 
-    return jsonify(drlng_list)
+    df['date_range'] = "{start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends'].astype(str) + "}"
+    
+
+    conf_dates_list = []
+    for x in df.index:
+        conf_dates_dict = {}
+        conf_dates_dict["event_begins"] = df['event_begins'][x]
+        conf_dates_dict["event_ends"] = df['event_ends'][x]
+        conf_dates_dict['date_range'] = df['date_range'][x]
+        
+        conf_dates_list.append(conf_dates_dict)
+
+    return jsonify(conf_dates_list)
 
 @app.route("/api/v1.0/land/<name_of_file>")
 def landFilteredAPI(name_of_file):
