@@ -50,7 +50,7 @@
         //function dateArray() {
 
 
-        var datesAPI
+        var datesAPI = [];
         d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data) {
             datesAPI = data;
         })
