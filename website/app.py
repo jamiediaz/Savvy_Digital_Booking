@@ -134,28 +134,31 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/v1.0/DBentry/<sdmDate>-<sdmName>-<sdmEmail>")
+@app.route("/v1.0/DBentry/<sdmDate><sdmName><sdmEmail>")
 def appt_request_entry(sdmDate, sdmName, sdmEmail):
     
-    sqlquery = f"INSERT INTO appt_requests(summary, description, "
+    sdmDate = sdmDate.isoformat()
+    print(sdmDate)
 
-    df = pd.read_sql_query(sqlquery, engine)
+    # sqlquery = f"INSERT INTO appt_requests(summary, description, "
+
+    # df = pd.read_sql_query(sqlquery, engine)
         
-    land_list = []
-    for x in df.index:
-        land_dict = {}
-        land_dict["FileName"] = df['filename'][x]
-        land_dict["FullPath"] = df['fullpath'][x]
-        land_dict["SubFolder1"] = df['subfolder1'][x]
-        land_dict["SubFolder2"] = df['subfolder2'][x]
-        land_dict["SubFolder3"] = df['subfolder3'][x]
-        land_dict["FileSize"] = int(df['filesize'][x])
-        land_dict["TimeStamp"] = df['timestamp'][x]
-        land_dict["Year"] = df['year'][x]
-        land_dict["Month"] = df['month'][x]
-        land_list.append(land_dict)
+    # land_list = []
+    # for x in df.index:
+    #     land_dict = {}
+    #     land_dict["FileName"] = df['filename'][x]
+    #     land_dict["FullPath"] = df['fullpath'][x]
+    #     land_dict["SubFolder1"] = df['subfolder1'][x]
+    #     land_dict["SubFolder2"] = df['subfolder2'][x]
+    #     land_dict["SubFolder3"] = df['subfolder3'][x]
+    #     land_dict["FileSize"] = int(df['filesize'][x])
+    #     land_dict["TimeStamp"] = df['timestamp'][x]
+    #     land_dict["Year"] = df['year'][x]
+    #     land_dict["Month"] = df['month'][x]
+    #     land_list.append(land_dict)
 
-    return jsonify(land_list)
+    # return jsonify(land_list)
 
 @app.route("/api/v1.0/production/<name_of_file>")
 def productionFilteredAPI(name_of_file):
