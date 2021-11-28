@@ -12,6 +12,7 @@ function myFunction() {
     var sdmDate = sdmDateTime.slice(0, 10)
     var sdmTime = sdmDateTime.slice(10, 19)
     var sdmStartTime = moment(sdmTime, "h:mm:ss A").format("HH:mm:ss")
+    var sdmDate = moment(sdmDate).toISOString();
 
     console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
         // window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
