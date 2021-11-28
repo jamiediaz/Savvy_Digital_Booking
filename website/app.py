@@ -93,6 +93,7 @@ def appt_requestsAPI():
 @app.route("/api/v1.0/confirmed_dates")
 def confirmed_dates_API():
     
+    #query the database for only start and end times only on entries that are confirmed.
     sqlquery = f"SELECT event_begins, event_ends FROM calendar WHERE status = 'confirmed';"
 
     df = pd.read_sql_query(sqlquery, engine)
@@ -133,10 +134,10 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/api/v1.0/land/<name_of_file>")
-def landFilteredAPI(name_of_file):
+@app.route("/v1.0/DBentry/<sdmDate>-<sdmName>-<sdmEmail>")
+def appt_request_entry(sdmDate, sdmName, sdmEmail):
     
-    sqlquery = f"SELECT * FROM land WHERE UPPER (filename) LIKE UPPER ('%%{name_of_file}%%') ORDER BY subfolder1 ASC NULLS FIRST, subfolder2 ASC NULLS FIRST, fullpath ASC NULLS FIRST;"
+    sqlquery = f"INSERT INTO appt_requests(summary, description, "
 
     df = pd.read_sql_query(sqlquery, engine)
         

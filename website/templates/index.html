@@ -46,56 +46,24 @@
             </div>
         </div>
     </div>
+
+
     <script type="text/javascript">
-        //function dateArray() {
-
-
         var datesAPI = [];
-        // d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data) {
-        //     datesAPI = data;
-        //     console.log(datesAPI)
-        // })
-
-
-
 
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
             .then(response => response.json())
             .then(function(result) {
-                //         console.log(d3.values.date_range(result))
+
                 for (var i = 0; i < result.length; i++) {
                     datesAPI.push(result[i])
                 }
 
-                //return (datesAPI)
             })
             .catch(error => console.log('error', error));
 
-        //console.log(d3.values(datesAPI));
-        // }
 
-        // d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data)
-
-        //     {
-        //         console.log(data[0][date_range])
-        //     });
-
-
-
-
-        // var datesTest = [{
-        //     start: '2021-11-30T09:00:00-06:00',
-        //     end: '2021-11-30T09:59:00-06:00'
-        // }, {
-        //     start: '2021-11-30T13:00:00-06:00',
-        //     end: '2021-11-30T13:59:00-06:00'
-        // }]
-
-        // var datesString = JSON.stringify(datesTest)
-
-
-        //let datesString = datesAPI.join(',');
-        console.log(datesAPI)
+        // console.log(datesAPI)
 
 
 
@@ -109,25 +77,9 @@
             minTime: '08:00',
             maxTime: '16:59',
             stepMinute: 60,
-            // example for today's labels and invalids
-            // labels: [{
-            //     start: '2021-11-25',
-            //     textColor: '#e1528f',
-            //     title: '1 SPOTS'
-            // }],
+
             invalid: datesAPI,
-            // invalid: [{
-            //         recurring: {
-            //             repeat: 'weekly',
-            //             weekDays: 'SA,SU'
-            //         }
-            //     },
 
-
-            //     //    datesAPI
-
-
-            //]
         });
     </script>
 
