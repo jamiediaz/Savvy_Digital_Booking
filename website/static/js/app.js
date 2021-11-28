@@ -7,10 +7,10 @@ function myFunction() {
     var sdmEmail = document.getElementById("emailAddress").value
 
 
-    sdmDate.toISOString()
+
 
     console.log(sdmDate, sdmName, sdmEmail)
-
+    window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
     return;
