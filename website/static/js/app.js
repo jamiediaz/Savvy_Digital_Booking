@@ -9,12 +9,12 @@ function myFunction() {
 
     //sdmDateTime = sdmDateTime.replaceAll('/', '-')
 
-    //var sdmDate = sdmDateTime.slice(0, 10)
-    //var sdmTime = sdmDateTime.slice(10, 19)
-    //var sdmStartTime = moment(sdmTime, "h:mm:ss A").format("HH:mm:ss")
-    var sdmDate = moment(sdmDateTime).toISOString();
+    var sdmDate = sdmDateTime.slice(0, 10)
+    var sdmTime = sdmDateTime.slice(10, 19)
+    var sdmStartTime = moment(sdmTime, "h:mm:ss A").format("HH:mm:ss")
+    var sdmDate = moment(sdmDate).format('YYYY-MM-DD');
 
-    console.log(sdmDate, sdmLName, sdmFName, sdmEmail)
+    console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
         // window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
