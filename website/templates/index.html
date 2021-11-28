@@ -54,7 +54,7 @@
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
             .then(response => response.json())
             .then(function(result) {
-                console.log(d3.date_range(result))
+                console.log(d3.values(result))
                 for (var i = 0; i < result.length; i++) {
                     datesAPI.push(result[i])
                 }
