@@ -6,7 +6,7 @@ function myFunction() {
     var sdmName = document.getElementById("fullName").value;
     var sdmEmail = document.getElementById("emailAddress").value
 
-    sdmDate = sdmDate.replace('/', '-')
+    sdmDate = sdmDate.replaceAll('/', '-')
 
 
     console.log(sdmDate, sdmName, sdmEmail)
