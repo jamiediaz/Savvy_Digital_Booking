@@ -56,7 +56,7 @@
             .then(function(result) {
                 //         console.log(d3.values.date_range(result))
                 for (var i = 0; i < result.length; i++) {
-                    datesAPI.push(result[i])
+                    datesAPI.push(result[i]['date_range'])
                 }
 
                 //return (datesAPI)
@@ -85,12 +85,13 @@
 
         // var datesString = JSON.stringify(datesTest)
 
-        var datesString = datesAPI['0']
 
+        let datesString = datesAPI.join(',');
+        console.log(datesString)
 
 
         console.log(datesAPI)
-        console.log(datesString)
+
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
             min: '2021-11-26T00:00',
