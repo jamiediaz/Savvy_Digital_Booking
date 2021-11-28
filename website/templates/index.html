@@ -73,7 +73,7 @@
         //     });
 
 
-
+        datesString = datesAPI.toString()
 
         var datesTest = [{
             start: '2021-11-30T09:00:00-06:00',
@@ -82,7 +82,7 @@
             start: '2021-11-30T13:00:00-06:00',
             end: '2021-11-30T13:59:00-06:00'
         }]
-        console.log(datesAPI)
+        console.log(datesString)
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
             min: '2021-11-26T00:00',
@@ -104,7 +104,7 @@
                     }
                 },
 
-                datesAPI,
+                datesString,
 
             ]
         });
