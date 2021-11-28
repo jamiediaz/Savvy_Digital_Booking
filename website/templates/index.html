@@ -50,11 +50,13 @@
         //function dateArray() {
 
 
-        var datesAPI = []
+        var datesAPI
         d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data) {
-                console.log(data)
-            })
-            // console.log(datesAPI)
+            datesAPI = data;
+        })
+
+
+        console.log(datesAPI)
 
         // // fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
         // //     .then(response => response.json())
