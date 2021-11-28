@@ -8,10 +8,11 @@ function myFunction() {
 
     sdmDateTime = sdmDateTime.replaceAll('/', '-')
 
-    var sdmDate = sdmDateTime.slice(0, 9)
+    var sdmDate = sdmDateTime.slice(0, 10)
+    var sdmTime = sdmDateTime.slice(12, 19)
 
 
-    console.log(sdmDate, sdmName, sdmEmail)
+    console.log(sdmDate, sdmName, sdmEmail, sdmTime)
         // window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
