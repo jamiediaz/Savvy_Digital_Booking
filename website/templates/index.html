@@ -73,15 +73,15 @@
         //     });
 
 
-        let datesString = JSON.stringify(datesAPI)
+        var datesString = JSON.stringify(datesAPI)
 
-        var datesTest = [{
-            start: '2021-11-30T09:00:00-06:00',
-            end: '2021-11-30T09:59:00-06:00'
-        }, {
-            start: '2021-11-30T13:00:00-06:00',
-            end: '2021-11-30T13:59:00-06:00'
-        }]
+        // var datesTest = [{
+        //     start: '2021-11-30T09:00:00-06:00',
+        //     end: '2021-11-30T09:59:00-06:00'
+        // }, {
+        //     start: '2021-11-30T13:00:00-06:00',
+        //     end: '2021-11-30T13:59:00-06:00'
+        // }]
         console.log(datesString)
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
