@@ -50,7 +50,7 @@
         //function dateArray() {
 
 
-        var datesAPI
+        var datesAPI = []
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
             .then(response => response.json())
             .then(function(result) {
@@ -85,11 +85,11 @@
 
         // var datesString = JSON.stringify(datesTest)
 
-        var datesString = datesAPI[0]
+        var datesString = datesAPI['0']
 
 
 
-        console.log(datesAPI[0])
+        console.log(datesAPI['0'])
         console.log(datesString)
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
