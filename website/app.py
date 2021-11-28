@@ -111,22 +111,27 @@ def confirmed_dates_API():
     #Create a new column with the event begins and event ends together in a string.     
     df['date_range'] = "start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'] + "'"
     
+    #create a dictionary entry for the recurring invalid days.  Saturday and Sunday will show up as disabled on the calendar.
     recurring_dict = {'recurring': {'repeat': 'weekly', 'weekDays': 'SA,SU'}}
 
     #Create the API using this new date range column
     conf_dates_list = []
     
+    #loop through the dataframe and put them into an array of dictionaries. 
     for x in df.index:
         conf_dates_dict = {}
-        
         conf_dates_dict["start"] = df['event_begins'][x]
         conf_dates_dict["end"] = df['event_ends_converted'][x]
         #conf_dates_dict['date_range'] = df['date_range'][x]
         
         conf_dates_list.append(conf_dates_dict)
+    
+    #append the recurring dictionary entry at the end of the API.  
     conf_dates_list.append(recurring_dict)
     
+    #jsonify the array and present it as a restfulAPI
     return jsonify(conf_dates_list)
+
 
 @app.route("/api/v1.0/land/<name_of_file>")
 def landFilteredAPI(name_of_file):
