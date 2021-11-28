@@ -116,9 +116,9 @@ def confirmed_dates_API():
     conf_dates_list = []
     for x in df.index:
         conf_dates_dict = {}
-        #conf_dates_dict["event_begins"] = df['event_begins'][x]
-        #conf_dates_dict["event_ends"] = df['event_ends'][x]
-        conf_dates_dict['date_range'] = df['date_range'][x]
+        conf_dates_dict["start"] = df['event_begins'][x]
+        conf_dates_dict["end"] = df['event_ends_converted'][x]
+        #conf_dates_dict['date_range'] = df['date_range'][x]
         
         conf_dates_list.append(conf_dates_dict)
 
