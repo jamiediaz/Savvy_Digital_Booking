@@ -3,7 +3,8 @@ function myFunction() {
 
 
     var sdmDateTime = document.getElementById("dateSelect").value;
-    var sdmName = document.getElementById("fullName").value;
+    var sdmFName = document.getElementById("fName").value;
+    var sdmLName = document.getElementById("lName").value;
     var sdmEmail = document.getElementById("emailAddress").value
 
     sdmDateTime = sdmDateTime.replaceAll('/', '-')
@@ -12,7 +13,7 @@ function myFunction() {
     var sdmTime = sdmDateTime.slice(10, 19)
 
 
-    console.log(sdmDate, sdmName, sdmEmail, sdmTime)
+    console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmTime)
         // window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
