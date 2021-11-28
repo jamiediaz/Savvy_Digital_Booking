@@ -114,9 +114,10 @@ def confirmed_dates_API():
 
     #Create the API using this new date range column
     conf_dates_list = []
+    conf_dates_list[0] = "{recurring: {repeat: 'weekly', weekDays: 'SA, SU'} }"
     for x in df.index:
         conf_dates_dict = {}
-        conf_dates_dict["recurring"] = "{repeat: 'weekly', weekDays: 'SA, SU'}"
+        #
         conf_dates_dict["start"] = df['event_begins'][x]
         conf_dates_dict["end"] = df['event_ends_converted'][x]
         #conf_dates_dict['date_range'] = df['date_range'][x]
