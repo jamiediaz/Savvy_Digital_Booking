@@ -66,7 +66,7 @@
         //console.log(d3.values(datesAPI));
         //}
 
-        d3.json('https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates').then(function(data) {
+        d3.json('https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates' + id).then(function(data) {
             console.log(data.date_range);
         });
 
