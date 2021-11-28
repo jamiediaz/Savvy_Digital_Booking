@@ -52,81 +52,81 @@
 
         var datesAPI = []
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
-            .then(response => response.json()).then(data => console.log(data[0]))
-            .then(function(results) {
-                    // //         //         console.log(d3.values.date_range(result))
-                    for (var i = 0; i < results.length; i++) {
-                        datesAPI.push(results[i]['date_range'])
-                    };
+            .then(response => response.json()).then(data => datesAPI)
+            // .then(function(results) {
+            //         // //         //         console.log(d3.values.date_range(result))
+            //         for (var i = 0; i < results.length; i++) {
+            //             datesAPI.push(results[i]['date_range'])
+            //         };
 
 
 
-                    // // fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
-                    // //     .then(response => response.json())
-                    // //     .then(function(result) {
-                    // //         //         console.log(d3.values.date_range(result))
-                    // //         for (var i = 0; i < result.length; i++) {
-                    // //             datesAPI.push(result[i]['date_range'])
-                    // //         }
+        // // fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
+        // //     .then(response => response.json())
+        // //     .then(function(result) {
+        // //         //         console.log(d3.values.date_range(result))
+        // //         for (var i = 0; i < result.length; i++) {
+        // //             datesAPI.push(result[i]['date_range'])
+        // //         }
 
-                    // //         //return (datesAPI)
-                    // //     })
-                    // //     .catch(error => console.log('error', error));
+        // //         //return (datesAPI)
+        // //     })
+        // //     .catch(error => console.log('error', error));
 
-                    //console.log(d3.values(datesAPI));
-                    //}
+        //console.log(d3.values(datesAPI));
+        //}
 
-                    // d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data)
+        // d3.json("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates", function(data)
 
-                    //     {
-                    //         console.log(data[0][date_range])
-                    //     });
-
-
+        //     {
+        //         console.log(data[0][date_range])
+        //     });
 
 
-                    // var datesTest = [{
-                    //     start: '2021-11-30T09:00:00-06:00',
-                    //     end: '2021-11-30T09:59:00-06:00'
-                    // }, {
-                    //     start: '2021-11-30T13:00:00-06:00',
-                    //     end: '2021-11-30T13:59:00-06:00'
-                    // }]
-
-                    // var datesString = JSON.stringify(datesTest)
 
 
-                    //let datesString = datesAPI.join(',');
-                    //console.log(datesString)
+        // var datesTest = [{
+        //     start: '2021-11-30T09:00:00-06:00',
+        //     end: '2021-11-30T09:59:00-06:00'
+        // }, {
+        //     start: '2021-11-30T13:00:00-06:00',
+        //     end: '2021-11-30T13:59:00-06:00'
+        // }]
+
+        // var datesString = JSON.stringify(datesTest)
 
 
-                    //console.log(datesAPI)
+        //let datesString = datesAPI.join(',');
+        //console.log(datesString)
 
-                    $('#dateSelect').mobiscroll().datepicker({
-                        controls: ['calendar', 'timegrid'],
-                        min: '2021-11-26T00:00',
 
-                        max: '2022-05-26T00:00',
-                        minTime: '08:00',
-                        maxTime: '16:59',
-                        stepMinute: 60,
-                        // example for today's labels and invalids
-                        // labels: [{
-                        //     start: '2021-11-25',
-                        //     textColor: '#e1528f',
-                        //     title: '1 SPOTS'
-                        // }],
-                        invalid: [{
-                                recurring: {
-                                    repeat: 'weekly',
-                                    weekDays: 'SA,SU'
-                                }
-                            },
+        //console.log(datesAPI)
 
-                            data
+        $('#dateSelect').mobiscroll().datepicker({
+            controls: ['calendar', 'timegrid'],
+            min: '2021-11-26T00:00',
 
-                        ]
-                    });
+            max: '2022-05-26T00:00',
+            minTime: '08:00',
+            maxTime: '16:59',
+            stepMinute: 60,
+            // example for today's labels and invalids
+            // labels: [{
+            //     start: '2021-11-25',
+            //     textColor: '#e1528f',
+            //     title: '1 SPOTS'
+            // }],
+            invalid: [{
+                    recurring: {
+                        repeat: 'weekly',
+                        weekDays: 'SA,SU'
+                    }
+                },
+
+                data
+
+            ]
+        });
     </script>
 
 
