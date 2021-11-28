@@ -7,7 +7,7 @@ function myFunction() {
     var sdmEmail = document.getElementById("emailAddress").value
 
 
-    // sdmDateISO = sdmDateISO.toISOString();
+    sdmDate.toISOString()
 
     console.log(sdmDate, sdmName, sdmEmail)
 
