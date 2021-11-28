@@ -58,8 +58,8 @@
                 for (var i = 0; i < result.length; i++) {
                     datesAPI.push(result[i]['date_range'])
                 }
-                console.log(datesAPI)
-                    //return (datesAPI)
+
+                //return (datesAPI)
             })
             .catch(error => console.log('error', error));
 
@@ -73,7 +73,7 @@
         //     });
 
 
-
+        console.log(datesAPI)
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
             min: '2021-11-26T00:00',
