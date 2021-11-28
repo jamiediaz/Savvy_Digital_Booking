@@ -111,6 +111,7 @@ def confirmed_dates_API():
     #Create a new column with the event begins and event ends together in a string.     
     df['date_range'] = "start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'] + "'"
     
+    recurring_dict = {'recurring': {'repeat': 'weekly', 'weekdays': 'SA, SU'}}
 
     #Create the API using this new date range column
     conf_dates_list = []
@@ -123,7 +124,7 @@ def confirmed_dates_API():
         #conf_dates_dict['date_range'] = df['date_range'][x]
         
         conf_dates_list.append(conf_dates_dict)
-    conf_dates_list.append("{recurring: {repeat: 'weekly',weekDays: 'SA,SU'}}")
+    conf_dates_list.append(recurring_dict)
     
     return jsonify(conf_dates_list)
 
