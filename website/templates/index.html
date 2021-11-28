@@ -52,16 +52,21 @@
 
         var datesAPI = []
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
-            .then(response => response.json())
-            .then(function(result) {
-                //         console.log(d3.values.date_range(result))
-                for (var i = 0; i < result.length; i++) {
-                    datesAPI.push(result[i]['date_range'])
-                }
+            .then(response => response.json()).then(data => console.log(data));
 
-                //return (datesAPI)
-            })
-            .catch(error => console.log('error', error));
+
+
+        // // fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
+        // //     .then(response => response.json())
+        // //     .then(function(result) {
+        // //         //         console.log(d3.values.date_range(result))
+        // //         for (var i = 0; i < result.length; i++) {
+        // //             datesAPI.push(result[i]['date_range'])
+        // //         }
+
+        // //         //return (datesAPI)
+        // //     })
+        // //     .catch(error => console.log('error', error));
 
         //console.log(d3.values(datesAPI));
         //}
