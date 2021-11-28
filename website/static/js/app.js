@@ -5,7 +5,9 @@ function myFunction() {
     var sdmDate = document.getElementById("dateSelect").value;
     var sdmName = document.getElementById("fullName").value;
     var sdmEmail = document.getElementById("emailAddress").value
-    sdmDateISO = sdmDate.toISOString()
+    var sdmDateISO = Date(sdmDate);
+
+    sdmDateISO = sdmDateISO.toISOString();
 
     console.log(sdmDateISO, sdmName, sdmEmail)
 
