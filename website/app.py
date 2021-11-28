@@ -123,7 +123,7 @@ def confirmed_dates_API():
         #conf_dates_dict['date_range'] = df['date_range'][x]
         
         conf_dates_list.append(conf_dates_dict)
-        conf_dates_list.append("{recurring: {repeat: 'weekly', weekDays: 'SA, SU'} }")
+    conf_dates_list.append("{recurring: {repeat: 'weekly', weekDays: 'SA, SU'} }")
     
     return jsonify(conf_dates_list)
 
