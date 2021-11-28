@@ -51,20 +51,25 @@
 
 
         var datesAPI = []
-        fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
-            .then(response => response.json())
-            .then(function(result) {
-                console.log(d3.values.date_range(result))
-                for (var i = 0; i < result.length; i++) {
-                    datesAPI.push(result[i])
-                }
-                console.log(datesAPI)
-                    //return (datesAPI)
-            })
-            .catch(error => console.log('error', error));
+            // fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
+            //     .then(response => response.json())
+            //     .then(function(result) {
+            //         console.log(d3.values.date_range(result))
+            //         for (var i = 0; i < result.length; i++) {
+            //             datesAPI.push(result[i])
+            //         }
+            //         console.log(datesAPI)
+            //             //return (datesAPI)
+            //     })
+            //     .catch(error => console.log('error', error));
 
         //console.log(d3.values(datesAPI));
         //}
+
+        d3.json('https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates').then(function(data) {
+            console.log(data.date_range);
+        });
+
 
         $('#dateSelect').mobiscroll().datepicker({
             controls: ['calendar', 'timegrid'],
