@@ -109,7 +109,7 @@ def confirmed_dates_API():
     df['event_ends_converted'] = df['event_ends_converted'].replace(' ','T', regex=True)
 
     #Create a new column with the event begins and event ends together in a string.     
-    df['date_range'] = "start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted']'"
+    df['date_range'] = "start: '" + df['event_begins'].astype(str) + "', end: '" + df['event_ends_converted'] + "'"
     
 
     #Create the API using this new date range column
