@@ -2,11 +2,13 @@ function myFunction() {
 
 
 
-    var sdmDate = document.getElementById("dateSelect").value;
+    var sdmDateTime = document.getElementById("dateSelect").value;
     var sdmName = document.getElementById("fullName").value;
     var sdmEmail = document.getElementById("emailAddress").value
 
-    sdmDate = sdmDate.replaceAll('/', '-')
+    sdmDateTime = sdmDateTime.replaceAll('/', '-')
+
+    var sdmDate = sdmDateTime.slice(0, 9)
 
 
     console.log(sdmDate, sdmName, sdmEmail)
