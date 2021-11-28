@@ -11,9 +11,9 @@ function myFunction() {
 
     var sdmDate = sdmDateTime.slice(0, 10)
     var sdmTime = sdmDateTime.slice(10, 19)
-    const newLocal = sdmDateTime.format();
+    var sdmStartTime = moment(sdmTime, "h:mm:ss A").format("HH:mm:ss")
 
-    console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmTime, newLocal)
+    console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
         // window.location = 'https://savvy-booking.herokuapp.com/v1.0/DBentry/' + sdmDate + sdmName + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
