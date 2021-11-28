@@ -9,7 +9,7 @@ function myFunction() {
     sdmDateTime = sdmDateTime.replaceAll('/', '-')
 
     var sdmDate = sdmDateTime.slice(0, 10)
-    var sdmTime = sdmDateTime.slice(12, 19)
+    var sdmTime = sdmDateTime.slice(10, 19)
 
 
     console.log(sdmDate, sdmName, sdmEmail, sdmTime)
