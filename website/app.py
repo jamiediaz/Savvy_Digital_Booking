@@ -134,12 +134,12 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/v1.0/DBentry/")
+@app.route("/v1.0/DBentry")
 def appt_request_entry():
     sdmDate = request.form.get('sdmDate')
     sdmStartTime = request.form.get('sdmStartTime')
     
-    return (flaskDate, flaskStartTime)
+    return (sdmkDate, sdmStartTime)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
