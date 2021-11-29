@@ -15,7 +15,7 @@ function myFunction() {
     var sdmDate = moment(sdmDate).format('YYYY-MM-DD');
 
     console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
-    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate;
+    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate + '&sdmStartTime=' + sdmStartTime;
 
     // var searchItem = document.getElementById("searchFile").value;
     return;
