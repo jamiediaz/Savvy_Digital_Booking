@@ -153,15 +153,15 @@ def DBentry():
     #add 1 hour to start_date_time for end time variable. 
     end_date_time = end_date_time + pd.to_timedelta(1, unit='hours')
 
-    #convert end_date_time to string 
+    #convert end_date_time to string and into ISO format.
     end_date_time = end_date_time.strftime('%Y-%m-%dT%H:%M:%S')
     
-    #add T to turn date time into ISO format using regular expression. 
-    #end_date_time = end_date_time.replace(' ','T', regex=True)
+    #Concat first and last name 
+    full_name = fname + ' ' + lname
 
 
     
-    return '''{},{},{},{},{}'''.format(start_date_time, end_date_time, start_time, lname, user_email)
+    return '''{}, {}, {}, {}'''.format(start_date_time, end_date_time, full_name, user_email)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
