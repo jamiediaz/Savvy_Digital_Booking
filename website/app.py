@@ -162,8 +162,8 @@ def DBentry():
     #insert new row into appt_request table in the SQL database using new data. 
     sqlquery = f"INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES ({full_name}, {user_email}, {start_date_time},{end_date_time},{user_email}); "
 
-    pd.read_sql_query(sqlquery, engine)
-    return '''{}, {}, {}, {}'''.format(start_date_time, end_date_time, full_name, user_email)
+    query = pd.read_sql_query(sqlquery, engine)
+    return (query)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
