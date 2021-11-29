@@ -136,9 +136,9 @@ def confirmed_dates_API():
 
 @app.route("/v1.0/DBentry/<sdmDate>")
 def appt_request_entry(sdmDate):
-    
+    return (sdmDate)
     #sdmDate = sdmDate.isoformat()
-    print(sdmDate)
+    # print(sdmDate)
     #print(sdmStartTime)
     #print(sdmFName)
     #print(sdmLName)
