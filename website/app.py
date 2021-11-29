@@ -134,9 +134,9 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/v1.0/DBentry")
-def appt_request_entry():
-    sdmDate = request.form.get('sdmDate')
+@app.route("/DBentry")
+def DBentry():
+    sdmDate = request.args.get('sdmDate')
     #sdmStartTime = request.form.get('sdmStartTime')
     
     return (sdmDate)
