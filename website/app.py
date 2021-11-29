@@ -136,8 +136,8 @@ def confirmed_dates_API():
 
 @app.route("/v1.0/DBentry/")
 def appt_request_entry():
-    flaskDate = request.form.get('sdmDate')
-    flaskStartTime = request.form.get('sdmStartTime')
+    sdmDate = request.form.get('sdmDate')
+    sdmStartTime = request.form.get('sdmStartTime')
     
     return (flaskDate, flaskStartTime)
     #sdmDate = sdmDate.isoformat()
