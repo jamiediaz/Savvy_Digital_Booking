@@ -1,6 +1,6 @@
 import sqlalchemy as sa
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session, scoped_session, sessionmaker
+from sqlalchemy.orm import Session, 
 from sqlalchemy import create_engine, func
 
 from datetime import datetime, timedelta
@@ -21,7 +21,7 @@ import pandas as pd
 from flask_cors import CORS
 
 engine = sa.create_engine('postgres://hsowclklmlcrcr:3406df177a4357c1ca87650b7591438a195116fd79eb64c7d37baf5cdf30a345@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3bahjahquj20r')
-db = scoped_session(sessionmaker(bind=engine))
+connection = engine.connect() 
 
 
 app = Flask(__name__)
@@ -159,11 +159,14 @@ def DBentry():
     #Concat first and last name 
     full_name = fname + ' ' + lname
 
+    data = [[full_name, user_email, start_date_time, end_date_time, user_email]]
+    df = pd.DataFrame(data, columns = ['summary', 'description', 'event_begins', 'event_ends', 'attendees'])
+
     #insert new row into appt_request table in the SQL database using new data. 
-    db.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
-    db.commit()
+    #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
-    return '''cool'''
+    
+    return (df)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
