@@ -154,10 +154,10 @@ def DBentry():
     end_date_time = end_date_time + pd.to_timedelta(1, unit='hours')
 
     #convert end_date_time to string 
-    end_date_time = end_date_time.astype(str)
+    # end_date_time = end_date_time.astype(str)
 
     #add T to turn date time into ISO format using regular expression. 
-    #end_date_time = end_date_time.replace(' ','T', regex=True)
+    end_date_time = end_date_time.replace(' ','T', regex=True)
 
 
     
