@@ -143,10 +143,11 @@ def DBentry():
     user_email = request.args.get('sdmEmail')
 
     #concat start_time and start_date into ISO format. 
-    start_date_time = start_date + "T" + start_time
+    start_date_time = start_date + " " + start_time
 
-    #change format to timedelta
-    end_date_time = datetime.strptime(start_date_time, '%Y-%m-%d %H:%M:%S')
+    #change format to timedelta for end_time
+    end_date_time = datetime.strptime(start_date_time, '%Y/%m/%d %H:%M:%S')
+    
     #add 1 hour to start_date_time for end time variable. 
     # end_date_time = end_date_time + timedelta(hours=1)
 
