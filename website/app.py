@@ -142,8 +142,8 @@ def DBentry():
     lname = request.args.get('sdmLName')
     user_email = request.args.get('sdmEmail')
 
-    #convert start time from string to TimeDelta format. 
-    start_date_time = start_date + " " + start_time
+    #concat  start time from string to TimeDelta format. 
+    start_date_time = start_date + "T" + start_time
 
 
     #add 1 hour to start time for end time variable. 
