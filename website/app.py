@@ -139,7 +139,7 @@ def appt_request_entry():
     sdmDate = request.form.get('sdmDate')
     sdmStartTime = request.form.get('sdmStartTime')
     
-    return (sdmkDate, sdmStartTime)
+    return (sdmDate, sdmStartTime)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
