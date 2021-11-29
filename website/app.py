@@ -149,7 +149,7 @@ def DBentry():
     end_date_time = pd.to_datetime(start_date_time)
     
     #add 1 hour to start_date_time for end time variable. 
-    end_date_time = end_date_time + timedelta(1, unit='hours')
+    end_date_time = end_date_time + pd.to_timedelta(1, unit='hours')
 
     #concat date times into ISO format
     #start_date_time = start_date + 'T' + start_time.astype(str)
