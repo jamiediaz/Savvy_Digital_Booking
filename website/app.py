@@ -148,7 +148,7 @@ def DBentry():
     #change format to timedelta
     end_date_time = datetime.strptime(start_date_time, '%Y-%m-%d %H:%M:%S')
     #add 1 hour to start_date_time for end time variable. 
-    end_date_time = end_date_time + timedelta(hours=1)
+    # end_date_time = end_date_time + timedelta(hours=1)
 
     #concat date times into ISO format
     #start_date_time = start_date + 'T' + start_time.astype(str)
