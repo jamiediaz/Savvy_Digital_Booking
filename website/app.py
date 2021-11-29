@@ -159,6 +159,8 @@ def DBentry():
     #Concat first and last name 
     full_name = fname + ' ' + lname
 
+    #insert new row into appt_request table in the SQL database using new data. 
+    sqlquery = f"INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES ({full_name}, {user_email}, {start_date_time},{end_date_time},{user_email}); "
 
     
     return '''{}, {}, {}, {}'''.format(start_date_time, end_date_time, full_name, user_email)
@@ -169,7 +171,7 @@ def DBentry():
     #print(sdmLName)
     #print(sdmEmail)
 
-    # sqlquery = f"INSERT INTO appt_requests(summary, description, "
+    # 
 
     # df = pd.read_sql_query(sqlquery, engine)
         

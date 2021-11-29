@@ -54,6 +54,9 @@
     <script type="text/javascript">
         var datesAPI = [];
 
+        //fetch scheduled dates from the confirmed dates API.  
+        //These date times will be used to disable already booked time slots in the calendar. 
+
         fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
             .then(response => response.json())
             .then(function(result) {
@@ -66,7 +69,7 @@
             .catch(error => console.log('error', error));
 
 
-
+        //this is to calculate yesterday's date.  
         var today = new Date()
         var yesterday = new Date(today)
 
