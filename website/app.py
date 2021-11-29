@@ -134,7 +134,7 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/v1.0/DBentry/<sdmDate>^<sdmFName>^<sdmLName>^<sdmEmail>^<sdmStartTime>")
+@app.route("/v1.0/DBentry/<sdmDate><sdmFName><sdmLName><sdmEmail><sdmStartTime>")
 def appt_request_entry(sdmDate, sdmFName, sdmLName, sdmEmail, sdmStartTime):
     
     #sdmDate = sdmDate.isoformat()
