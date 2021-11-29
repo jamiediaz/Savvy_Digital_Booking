@@ -142,18 +142,17 @@ def DBentry():
     lname = request.args.get('sdmLName')
     user_email = request.args.get('sdmEmail')
 
-    #concat  start time from string to TimeDelta format. 
+    #concat start_time and start_date into ISO format. 
     start_date_time = start_date + "T" + start_time
 
-
-    #add 1 hour to start time for end time variable. 
-    #end_time = start_time + timedelta(hours=1)
+    #add 1 hour to start_date_time for end time variable. 
+    end_date_time = start_date_time + timedelta(hours=1)
 
     #concat date times into ISO format
     #start_date_time = start_date + 'T' + start_time.astype(str)
 
     
-    return '''{},{},{},{},{}'''.format(start_date_time, start_date, start_time, lname, user_email)
+    return '''{},{},{},{},{}'''.format(start_date_time, end_date_time, start_time, lname, user_email)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
