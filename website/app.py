@@ -146,7 +146,7 @@ def DBentry():
     start_date_time = start_date + " " + start_time
 
     #change format to timedelta for end_time
-    end_date_time = datetime.strptime(start_date_time, '%H:%M:%S')
+    # end_date_time = datetime.strptime(start_date_time, '%H:%M:%S')
     
     #add 1 hour to start_date_time for end time variable. 
     # end_date_time = end_date_time + timedelta(hours=1)
