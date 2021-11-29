@@ -136,6 +136,8 @@ def confirmed_dates_API():
 
 @app.route("/DBentry")
 def DBentry():
+
+    #extract data from URL request
     start_date = request.args.get('sdmDate')
     start_time = request.args.get('sdmStartTime')
     fname = request.args.get('sdmFName')
@@ -151,8 +153,12 @@ def DBentry():
     #add 1 hour to start_date_time for end time variable. 
     end_date_time = end_date_time + pd.to_timedelta(1, unit='hours')
 
-    #concat date times into ISO format
-    #start_date_time = start_date + 'T' + start_time.astype(str)
+    #convert end_date_time to string 
+    end_date_time = end_date_time.astype(str)
+
+    #add T to turn date time into ISO format using regular expression. 
+    end_date_time = end_date_time.replace(' ','T', regex=True)
+
 
     
     return '''{},{},{},{},{}'''.format(start_date_time, end_date_time, start_time, lname, user_email)
