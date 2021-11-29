@@ -134,15 +134,15 @@ def confirmed_dates_API():
     return jsonify(conf_dates_list)
 
 
-@app.route("/v1.0/DBentry/<sdmDate>/<sdmFName>/<sdmLName>/<sdmEmail>/<sdmStartTime>")
-def appt_request_entry(sdmDate, sdmFName, sdmLName, sdmEmail, sdmStartTime):
+@app.route("/v1.0/DBentry/<sdmDate>")
+def appt_request_entry(sdmDate):
     
     #sdmDate = sdmDate.isoformat()
     print(sdmDate)
-    print(sdmStartTime)
-    print(sdmFName)
-    print(sdmLName)
-    print(sdmEmail)
+    #print(sdmStartTime)
+    #print(sdmFName)
+    #print(sdmLName)
+    #print(sdmEmail)
 
     # sqlquery = f"INSERT INTO appt_requests(summary, description, "
 
