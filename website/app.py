@@ -143,7 +143,7 @@ def DBentry():
     user_email = request.args.get('sdmEmail')
 
     #concat start_time and start_date into ISO format. 
-    start_date_time = start_date + " " + start_time
+    start_date_time = start_date + "T" + start_time
 
     #change format to timedelta for end_time
     end_date_time = pd.to_datetime(start_date_time)
