@@ -162,7 +162,7 @@ def DBentry():
     data = [[full_name, user_email, start_date_time, end_date_time, user_email]]
     df = pd.DataFrame(data, columns = ['summary', 'description', 'event_begins', 'event_ends', 'attendees'])
     
-
+    print(df)
     #insert new row into appt_request table in the SQL database using new data. 
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
