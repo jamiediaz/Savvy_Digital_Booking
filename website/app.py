@@ -136,11 +136,13 @@ def confirmed_dates_API():
 
 @app.route("/DBentry")
 def DBentry():
-    sdmDate = request.args.get('sdmDate')
-    sdmStartTime = request.args.get('sdmStartTime')
-    sdmFName = request.args.get('sdmFName')
+    start_date = request.args.get('sdmDate')
+    start_time = request.args.get('sdmStartTime')
+    fname = request.args.get('sdmFName')
+    lname = request.args.get('sdmLName')
+    user_email = request.args.get('sdmEmail')
     
-    return '''{},{},{}'''.format(sdmDate, sdmStartTime, sdmFName)
+    return '''{},{},{},{},{}'''.format(start_date, start_time, fname, lname, user_email)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)

@@ -15,7 +15,7 @@ function myFunction() {
     var sdmDate = moment(sdmDate).format('YYYY-MM-DD');
 
     console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
-    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate + '&sdmStartTime=' + sdmStartTime + '&sdmFName=' + sdmFName;
+    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate + '&sdmStartTime=' + sdmStartTime + '&sdmFName=' + sdmFName + '&sdmLName=' + sdmLName + '&sdmEmail=' + sdmEmail;
 
     // var searchItem = document.getElementById("searchFile").value;
     return;
