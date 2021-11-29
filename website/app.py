@@ -140,7 +140,7 @@ def DBentry():
     sdmStartTime = request.args.get('sdmStartTime')
     #sdmStartTime = request.form.get('sdmStartTime')
     
-    return (sdmDate, sdmStartTime)
+    return (sdmDate)
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
