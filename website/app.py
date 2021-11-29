@@ -138,7 +138,7 @@ def confirmed_dates_API():
 def DBentry():
     sdmDate = request.args.get('sdmDate')
     sdmStartTime = request.args.get('sdmStartTime')
-    sdmFName = request.form.get('sdmFName')
+    sdmFName = request.args.get('sdmFName')
     
     return '''{},{},{}'''.format(sdmDate, sdmStartTime, sdmFName)
     #sdmDate = sdmDate.isoformat()
