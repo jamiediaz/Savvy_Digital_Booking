@@ -157,7 +157,7 @@ def DBentry():
     end_date_time = end_date_time.astype(str)
 
     #add T to turn date time into ISO format using regular expression. 
-    end_date_time = end_date_time.replace(' ','T', regex=True)
+    #end_date_time = end_date_time.replace(' ','T', regex=True)
 
 
     
