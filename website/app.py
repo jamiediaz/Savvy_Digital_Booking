@@ -169,8 +169,8 @@ def DBentry():
     new_SQL_row = new_SQL_row.reset_index(inplace=True, drop=True)
 
     new_SQL_row.to_sql(name='appt_requests', con=connection, if_exists='append', index=False)
-    #with engine.connect() as con:
-        # con.execute()
+    with engine.connect() as con:
+         #con.execute("")
     
     #insert new row into appt_request table in the SQL database using new data. 
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
