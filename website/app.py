@@ -63,12 +63,10 @@ def calendarAPI():
         
         calendar_list.append(calendar_dict)
 
-    # print(accnt_list)
+    
     return jsonify(calendar_list)
 
-    # df.columns = ['FileName','FullPath','SubFolder1','Subfolder2','Subfolder3','FileSize','TimeStamp','Year','Month']
-    # df['FileSize'] = int(df["FileSize"])
-    # Return df.to_json(orient="records")
+    
 
 @app.route("/api/v1.0/appt_requests")
 def appt_requestsAPI():
@@ -177,80 +175,8 @@ def DBentry():
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
     
-    return (f"Hello {full_name}. This is to confirm your scheduled appointment. You should recieve an email soon.") 
-    #sdmDate = sdmDate.isoformat()
-    # print(sdmDate)
-    #print(sdmStartTime)
-    #print(sdmFName)
-    #print(sdmLName)
-    #print(sdmEmail)
-
-    # 
-
-    # df = pd.read_sql_query(sqlquery, engine)
-        
-    # land_list = []
-    # for x in df.index:
-    #     land_dict = {}
-    #     land_dict["FileName"] = df['filename'][x]
-    #     land_dict["FullPath"] = df['fullpath'][x]
-    #     land_dict["SubFolder1"] = df['subfolder1'][x]
-    #     land_dict["SubFolder2"] = df['subfolder2'][x]
-    #     land_dict["SubFolder3"] = df['subfolder3'][x]
-    #     land_dict["FileSize"] = int(df['filesize'][x])
-    #     land_dict["TimeStamp"] = df['timestamp'][x]
-    #     land_dict["Year"] = df['year'][x]
-    #     land_dict["Month"] = df['month'][x]
-    #     land_list.append(land_dict)
-
-    # return jsonify(land_list)
-
-@app.route("/api/v1.0/production/<name_of_file>")
-def productionFilteredAPI(name_of_file):
+    return f"Hello {full_name}. This is to confirm your scheduled appointment. You should recieve an email soon."
     
-    sqlquery = f"SELECT * FROM production WHERE UPPER (filename) LIKE UPPER ('%%{name_of_file}%%') ORDER BY subfolder1 ASC NULLS FIRST, subfolder2 ASC NULLS FIRST, fullpath ASC NULLS FIRST;"
-
-    df = pd.read_sql_query(sqlquery, engine)
-        
-    prod_list = []
-    for x in df.index:
-        prod_dict = {}
-        prod_dict["FileName"] = df['filename'][x]
-        prod_dict["FullPath"] = df['fullpath'][x]
-        prod_dict["SubFolder1"] = df['subfolder1'][x]
-        prod_dict["SubFolder2"] = df['subfolder2'][x]
-        prod_dict["SubFolder3"] = df['subfolder3'][x]
-        prod_dict["FileSize"] = int(df['filesize'][x])
-        prod_dict["TimeStamp"] = df['timestamp'][x]
-        prod_dict["Year"] = df['year'][x]
-        prod_dict["Month"] = df['month'][x]
-        prod_list.append(prod_dict)
-
-    return jsonify(prod_list)
-
-@app.route("/api/v1.0/well_files/<name_of_file>")
-def wellfilesFilteredAPI(name_of_file):
-    
-    sqlquery = f"SELECT * FROM well_files WHERE UPPER (filename) LIKE UPPER ('%%{name_of_file}%%') ORDER BY subfolder1 ASC NULLS FIRST, subfolder2 ASC NULLS FIRST, fullpath ASC NULLS FIRST;"
-
-    df = pd.read_sql_query(sqlquery, engine)
-        
-    well_list = []
-    for x in df.index:
-        well_dict = {}
-        well_dict["FileName"] = df['filename'][x]
-        well_dict["FullPath"] = df['fullpath'][x]
-        well_dict["SubFolder1"] = df['subfolder1'][x]
-        well_dict["SubFolder2"] = df['subfolder2'][x]
-        well_dict["SubFolder3"] = df['subfolder3'][x]
-        well_dict["FileSize"] = int(df['filesize'][x])
-        well_dict["TimeStamp"] = df['timestamp'][x]
-        well_dict["Year"] = df['year'][x]
-        well_dict["Month"] = df['month'][x]
-        well_list.append(well_dict)
-
-    return jsonify(well_list)
-
 if __name__ == "__main__":
     # app.run(host='0.0.0.0')
     app.run()
