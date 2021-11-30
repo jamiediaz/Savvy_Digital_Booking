@@ -166,9 +166,9 @@ def DBentry():
             'attendees':[user_email]}
     
     new_SQL_row = pd.DataFrame(data)
-    new_SQL_row = new_SQL_row.reset_index(inplace=True, drop=True)
+    #new_SQL_row = new_SQL_row.reset_index(inplace=True, drop=True)
 
-    new_SQL_row.to_sql(name='appt_requests', con=connection, if_exists='append', index=False)
+    new_SQL_row.to_sql(name='appt_requests', con=connection, if_exists='append')
     with engine.connect() as con:
          #con.execute("")
     
