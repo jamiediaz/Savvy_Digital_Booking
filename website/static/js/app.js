@@ -6,6 +6,7 @@ function myFunction() {
     var sdmFName = document.getElementById("fName").value;
     var sdmLName = document.getElementById("lName").value;
     var sdmEmail = document.getElementById("emailAddress").value
+    var sdmPhone = document.getElementById("phoneNumber").value
 
     //sdmDateTime = sdmDateTime.replaceAll('/', '-')
 
@@ -15,7 +16,7 @@ function myFunction() {
     var sdmDate = moment(sdmDate).format('YYYY-MM-DD');
 
     console.log(sdmDate, sdmLName, sdmFName, sdmEmail, sdmStartTime)
-    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate + '&sdmStartTime=' + sdmStartTime + '&sdmFName=' + sdmFName + '&sdmLName=' + sdmLName + '&sdmEmail=' + sdmEmail;
+    window.location = 'https://savvy-booking.herokuapp.com/DBentry?sdmDate=' + sdmDate + '&sdmStartTime=' + sdmStartTime + '&sdmFName=' + sdmFName + '&sdmLName=' + sdmLName + '&sdmEmail=' + sdmEmail + '&sdmPhone=' + sdmPhone;
 
     // var searchItem = document.getElementById("searchFile").value;
     return;

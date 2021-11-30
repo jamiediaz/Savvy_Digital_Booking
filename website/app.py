@@ -143,6 +143,7 @@ def DBentry():
     fname = request.args.get('sdmFName')
     lname = request.args.get('sdmLName')
     user_email = request.args.get('sdmEmail')
+    phone_number = request.args.get('sdmPhone')
 
     #concat start_time and start_date into ISO format. 
     start_date_time = start_date + "T" + start_time
@@ -160,7 +161,7 @@ def DBentry():
     full_name = fname + ' ' + lname
 
     data = {'summary':[full_name],
-            'description':[user_email],
+            'description':[phone_number],
             'event_begins':[start_date_time],
             'event_ends':[end_date_time],
             'attendees':[user_email]}
@@ -176,7 +177,7 @@ def DBentry():
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
     
-    return (f"hello") 
+    return (f"Hello {full_name}. This is to confirm your scheduled appointment. You should recieve and email soon.") 
     #sdmDate = sdmDate.isoformat()
     # print(sdmDate)
     #print(sdmStartTime)
