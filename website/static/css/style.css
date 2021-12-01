@@ -1,29 +1,21 @@
-.body {
-    font-family: 'Varela Round', sans-serif;
-    background: gray
 }
-
 #white_bar {
     height: 60px;
 }
-
 #gray_bar {
     height: 100%px;
     background: gray;
 }
-
 #Schedule_name {
     height: 40%;
     color: white;
     left: 20%
 }
-
 .box-set {
     position: relative;
     height: 100%;
     background: darkgray;
 }
-
 .box {
     position: relative;
     min-height: 10%;
@@ -34,11 +26,9 @@
     font-weight: 800;
     color: #fff;
 }
-
 .editor-datetime {
     position: relative;
 }
-
 
 /* .margin-top-80 {
     margin-top: 80px;
