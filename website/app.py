@@ -175,7 +175,7 @@ def DBentry():
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
     
-    return f"Hello {full_name}. This is to confirm your scheduled appointment. You should recieve an email soon."
+    return render_template("confirm.html")
     
 if __name__ == "__main__":
     # app.run(host='0.0.0.0')
