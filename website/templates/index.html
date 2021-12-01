@@ -27,25 +27,49 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row" id="white_bar">
+
+        </div>
+    </div>
+
+
+    <div class=row id="gray_bar">
+        <div class="col-md-1" id="left_buffer"></div>
+
+        <div class="col-md-4" id="Schedule_name">
+            <h1>Schedule an Appointment</h1>
+
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="white_bar">
+
+        </div>
+    </div>
+
+    <div class="container ">
+        <div class="row ">
+            <div class="col-md-6 ">
                 <div class="form-group ">
                     <form>
                         <h6>Enter your information and click submit</h6>
                         Date and Time (click to choose a date)<br>
-                        <input class="form-control" id="dateSelect" type="text">
+                        <input class="form-control " id="dateSelect " type="text ">
                         <p></p>
                         First Name<br>
-                        <input class="form-control" id="fName" type="text">
+                        <input class="form-control " id="fName " type="text ">
                         <p></p>
                         Last Name<br>
-                        <input class="form-control" id="lName" type="text">
+                        <input class="form-control " id="lName " type="text ">
                         <p></p>
                         Phone Number<br>
-                        <input class="form-control" id="phoneNumber" type="text"> Email
+                        <input class="form-control " id="phoneNumber " type="text "> Email
                         <br>
-                        <input class="form-control" id="emailAddress" type="text">
-                        <input type="button" value="Submit" onclick="myFunction()">
+                        <input class="form-control " id="emailAddress " type="text ">
+                        <input type="button " value="Submit " onclick="myFunction() ">
                     </form>
                 </div>
             </div>
@@ -53,13 +77,13 @@
     </div>
 
 
-    <script type="text/javascript">
+    <script type="text/javascript ">
         var datesAPI = [];
 
         //fetch scheduled dates from the confirmed dates API.  
         //These date times will be used to disable already booked time slots in the calendar. 
 
-        fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
+        fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates ")
             .then(response => response.json())
             .then(function(result) {
 
