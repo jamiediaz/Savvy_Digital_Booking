@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <!-- <div class="container">
+    <div class="container">
         <div class="row" id="white_bar">
 
         </div>
@@ -48,80 +48,80 @@
         <div class="row" id="white_bar">
 
         </div>
-    </div> -->
 
-    <div class="container ">
-        <div class="row ">
-            <div class="col-md-6 ">
-                <div class="form-group ">
-                    <form>
-                        <h6>Enter your information and click submit</h6>
-                        Date and Time (click to choose a date)<br>
-                        <input class="form-control " id="dateSelect " type="text ">
-                        <p></p>
-                        First Name<br>
-                        <input class="form-control " id="fName " type="text ">
-                        <p></p>
-                        Last Name<br>
-                        <input class="form-control " id="lName " type="text ">
-                        <p></p>
-                        Phone Number<br>
-                        <input class="form-control " id="phoneNumber " type="text "> Email
-                        <br>
-                        <input class="form-control " id="emailAddress " type="text ">
-                        <input type="button " value="Submit " onclick="myFunction() ">
-                    </form>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <form>
+                            <h6>Enter your information and click submit</h6>
+                            Date and Time (click to choose a date)<br>
+                            <input class="form-control" id="dateSelect" type="text">
+                            <p></p>
+                            First Name<br>
+                            <input class="form-control" id="fName" type="text">
+                            <p></p>
+                            Last Name<br>
+                            <input class="form-control" id="lName" type="text">
+                            <p></p>
+                            Phone Number<br>
+                            <input class="form-control" id="phoneNumber" type="text"> Email
+                            <br>
+                            <input class="form-control" id="emailAddress" type="text">
+                            <input type="button" value="Submit" onclick="myFunction()">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script type="text/javascript ">
-        var datesAPI = [];
+        <script type="text/javascript">
+            var datesAPI = [];
 
-        //fetch scheduled dates from the confirmed dates API.  
-        //These date times will be used to disable already booked time slots in the calendar. 
+            //fetch scheduled dates from the confirmed dates API.  
+            //These date times will be used to disable already booked time slots in the calendar. 
 
-        fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates ")
-            .then(response => response.json())
-            .then(function(result) {
+            fetch("https://savvy-booking.herokuapp.com/api/v1.0/confirmed_dates")
+                .then(response => response.json())
+                .then(function(result) {
 
-                for (var i = 0; i < result.length; i++) {
-                    datesAPI.push(result[i])
-                }
+                    for (var i = 0; i < result.length; i++) {
+                        datesAPI.push(result[i])
+                    }
 
-            })
-            .catch(error => console.log('error', error));
-
-
-        //this is to calculate yesterday's date.  
-        var today = new Date()
-        var yesterday = new Date(today)
-
-        yesterday.setDate(yesterday.getDate() - 1)
-
-        yesterday.toDateString()
-
-        console.log(yesterday)
+                })
+                .catch(error => console.log('error', error));
 
 
+            //this is to calculate yesterday's date.  
+            var today = new Date()
+            var yesterday = new Date(today)
+
+            yesterday.setDate(yesterday.getDate() - 1)
+
+            yesterday.toDateString()
+
+            console.log(yesterday)
 
 
-        $('#dateSelect').mobiscroll().datepicker({
 
-            controls: ['calendar', 'timegrid'],
-            min: yesterday,
 
-            max: '2022-05-26T00:00',
-            minTime: '08:00',
-            maxTime: '16:59',
-            stepMinute: 60,
+            $('#dateSelect').mobiscroll().datepicker({
 
-            invalid: datesAPI,
+                controls: ['calendar', 'timegrid'],
+                min: yesterday,
 
-        });
-    </script>
+                max: '2022-05-26T00:00',
+                minTime: '08:00',
+                maxTime: '16:59',
+                stepMinute: 60,
+
+                invalid: datesAPI,
+
+            });
+        </script>
 
 
 
