@@ -99,14 +99,11 @@
             var today = new Date()
             var yesterday = new Date(today)
 
-            yesterday.setDate(yesterday.getDate() - 1)
+            yesterday.setDate(yesterday.getDate() - 0)
 
             yesterday.toDateString()
 
-            console.log(yesterday)
-
-
-
+            // console.log(yesterday)
 
             $('#dateSelect').mobiscroll().datepicker({
 
