@@ -12,7 +12,6 @@ from flask import (
     jsonify,
     request,
     redirect)
-# from flask_sqlalchemy import SQLAlchemy
 
 
 import numpy as np
@@ -20,6 +19,7 @@ import pandas as pd
 
 from flask_cors import CORS
 
+#connection to the database
 engine = sa.create_engine('postgres://hsowclklmlcrcr:3406df177a4357c1ca87650b7591438a195116fd79eb64c7d37baf5cdf30a345@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3bahjahquj20r')
 connection = engine.connect() 
 
@@ -36,8 +36,6 @@ def welcome():
     
     return "Available Routes:<br/> /v1.0/calendar</br> /v1.0/appt_requests</br> /api/v1.0/confirmed_dates</br>"
             
-
-
 
 @app.route("/api/v1.0/calendar")
 def calendarAPI():
@@ -94,8 +92,10 @@ def confirmed_dates_API():
     #query the database for only start and end times only on entries that are confirmed.
     sqlquery = f"SELECT event_begins, event_ends FROM calendar WHERE status = 'confirmed';"
 
+    #copy SQL query results into a Pandas data frame. 
     df = pd.read_sql_query(sqlquery, engine)
-    #Convert df['event_ends'] to datetime
+
+    #Convert df['event_ends'] column to datetime
     df['event_ends_converted'] = pd.to_datetime(df['event_ends'])
     
     #Subtract 1 minute from the end time. 
@@ -158,15 +158,18 @@ def DBentry():
     #Concat first and last name 
     full_name = fname + ' ' + lname
 
+    #create a dictionary called data with the contents
     data = {'summary':[full_name],
             'description':[phone_number],
             'event_begins':[start_date_time],
             'event_ends':[end_date_time],
             'attendees':[user_email]}
     
+    #create a Pandas dataframe using the dictionary.
     new_SQL_row = pd.DataFrame(data)
     #new_SQL_row = new_SQL_row.reset_index(inplace=True, drop=True)
 
+    #upload to the SQL database using the Pandas database updater
     new_SQL_row.to_sql(name='appt_requests', con=connection, if_exists='append')
     with engine.connect() as con:
          con.execute("select * from appt_requests")
@@ -174,7 +177,7 @@ def DBentry():
     #insert new row into appt_request table in the SQL database using new data. 
     #connection.execute("INSERT INTO appt_requests(summary, description, event_begins, event_ends, attendees) VALUES (:full_name, :user_email, :start_date_time,:end_date_time,:user_email)",{"summary": full_name, "description": user_email, "event_begins": start_date_time, "event_ends": end_date_time, "attendees": user_email})
     
-    
+    #display the confrimation webpage
     return render_template("confirm.html")
     
 if __name__ == "__main__":
