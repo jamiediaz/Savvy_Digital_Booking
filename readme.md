@@ -1,5 +1,7 @@
 This is a project created for MIS4312 at UH Downtown.  It is a booking webapp that syncrhonizes with google calendar.  
 
+![](images/webpage.png)
+
 The system runs off of the Flask framework and is hosted on Heroku.com  
 
 The webapp uses the mobiscroll calendar.  To disable dates and timeslots, the calendar uses a webAPI that is sourced from 
